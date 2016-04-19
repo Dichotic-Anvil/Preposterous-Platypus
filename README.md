@@ -8,7 +8,7 @@
   - __Scrum Master__: Reid Greer
   - __Development Team Members__: Claire Hsu, Kim Curran
 
-## Team - Feature Extending Tream
+## Team - Feature Extending Team
 
   - __Product Owner__: Michael Balarezo
   - __Scrum Master__: Brandon Courtney
