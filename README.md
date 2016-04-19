@@ -4,9 +4,9 @@
 
 ## Team
 
-  - __Product Owner__: Arun Vasudevan
-  - __Scrum Master__: Reid Greer
-  - __Development Team Members__: Claire Hsu, Kim Curran
+  - __Product Owner__: Michael Balarezo
+  - __Scrum Master__: Brandon Courtney
+  - __Development Team Members__: Jeremy Rosenfeld, John Zuccarelli
 
 ## Table of Contents
 
