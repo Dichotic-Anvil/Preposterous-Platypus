@@ -13,9 +13,9 @@ module.exports = function(app, session, passport) {
   app.use(passport.session());
 
   passport.use(new GitHubStrategy({
-    clientID: '4cc724b73df7e764536f',
-    clientSecret: 'dad7b3b87f7478e53ed79186e41ef7aea161ba15',
-    callbackURL: 'http://45.55.19.173:8000/github/callback'
+    clientID: '58538d6731e5d342c956',
+    clientSecret: 'a97deeaf0cc14149773b419f9dcc48b35ed0f6a2',
+    callbackURL: 'http://127.0.0.1:8000/github/callback'
   }, function(accessToken, refreshToken, profile, callback) {
     // console.log('PROFILE >>>>>> ', profile);
     User
@@ -23,7 +23,7 @@ module.exports = function(app, session, passport) {
         if (found) {
           callback(null, found);
         } else {
-          User.create({ 
+          User.create({
             name: profile.displayName === null ? profile.username : profile.displayName,
             gitHubHandle: profile.username,
             email: profile._json.email,
