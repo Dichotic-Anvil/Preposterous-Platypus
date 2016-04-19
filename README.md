@@ -2,11 +2,17 @@
 
 > A social sharing site for Hack Reactor students. 
 
-## Team
+## Team - Original Build Team
 
   - __Product Owner__: Arun Vasudevan
   - __Scrum Master__: Reid Greer
   - __Development Team Members__: Claire Hsu, Kim Curran
+
+## Team - Feature Extending Tream
+
+  - __Product Owner__: Michael Balarezo
+  - __Scrum Master__: Brandon Courtney
+  - __Development Team Members__: Jeremy Rosenfeld, John Zuccarelli
 
 ## Table of Contents
 
