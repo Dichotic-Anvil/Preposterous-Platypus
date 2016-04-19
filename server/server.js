@@ -20,5 +20,5 @@ app.listen(port, function(err) {
 });
 
 // Passport Configuration
-require('./config/passportConfig.js')(app, session, passport);  
+require('./config/passportConfig.js')(app, session, passport);
 require('./config/routes.js')(app, express, passport);
