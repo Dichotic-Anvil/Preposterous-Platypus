@@ -8,6 +8,9 @@ angular.module('platypus.events', [])
 
   $scope.toggleForm = true;
 
+  $scope.events = [];
+
+
   var updateUserLikes = function() {
     Likes.findUserLikes()
     .then(function(likes) {
@@ -53,19 +56,19 @@ angular.module('platypus.events', [])
     });
   };
 
-  $scope.createEvent = function (event) {
+  $scope.createEvent = function(event) {
     Events.createOne(event)
     .then(function(resp){
       console.log('Event has been created', resp);
+      Events.getAll()
+      .then(function(events) {
+        console.log("retrievingAll: frontend controller", resp);
+      });
     })
     .catch(function(error){
       console.log('error');
-    })
+    });
   };
 });
-
-
-
-
 
 
