@@ -1,0 +1,61 @@
+<div class="container">
+<div ng-include="'app/partials/nav.html'"></div>
+
+<div class="row feed-filter">
+<!--   <div class="col-md-1 text-hide">&nbsp;</div> -->
+
+
+<form ng-submit='createEvent(event)' ng-show="toggleForm">
+  <div class="form-group">
+    <label for="eventName">Name of Event</label>
+    <input type="text" class="form-control" placeholder="Event title" ng-model="event.name">
+    <label for="eventDate">Date of Event</label>
+    <input type="date" class="form-control" placeholder="Event Date" ng-model="event.date">
+    <label for="eventTime">Time of Event</label>
+    <input type="time" class="form-control" placeholder="Event Time" ng-model="event.time">
+  </div>  
+  <button type="submit" class="btn btn-default" ng-Click="toggleForm = !toggleForm">Create Event</button>
+</form>
+<br>
+<button type="submit" class="btn btn-warning" ng-Click="toggleForm = !toggleForm">Add an event</button>
+  <label class="control-label col-md-1">Filter:</label>
+  <div class="col-md-4">
+    <input type="text" class="form-control" ng-model="feedFilter" placeholder="Filter by" autofocus>
+    </div>
+
+    <label class="control-label col-md-1">Sort:</label>
+    <div class="col-md-4 sort-container">
+      <select ng-model="feedOrder">
+        <option value="-likes">Liked: Most Popular to Least</option>
+        <option value="likes">Liked: Least Popular to Most</option>
+      </select>
+      </div>
+</div>
+
+<div class="distance message">
+  <div class="alert alert-warning" role="alert">
+    All results are within a 2 mile radius of Hack Reactor - <strong>944 Market St. San Francisco, CA 94012</strong>
+  </div>
+</div>
+
+ <div class="row">
+   <div class="col-lg-3 col-sm-6 col-md-3" data-ng-repeat="restaurant in data.restaurants | filter:feedFilter | orderBy: feedOrder">
+     <div class="thumbnail">
+       <img ng-src="{{restaurant.image_url}}" alt="{{restaurant.name}}" class="img-rounded">
+         <div class="caption">
+           <span class="thumbnail-title">{{restaurant.name}}</span>
+           <div class="row category-holder">
+             <span class="glyphicon glyphicon-tag"></span> 
+             <span ng-repeat="category in restaurant.categories">
+             <span ng-hide="category === restaurant.categories[0]">, </span>{{category}}</span>
+           </div>
+           <div class="row">
+             <a role="button" class="btn btn-default" ng-class="{'btn-primary' : data.likes[restaurant._id]}" ng-click="updateLikes(restaurant._id)">
+             <span class="glyphicon glyphicon-thumbs-up"></span>
+             {{restaurant.likes}}
+             </a>
+           </div>
+         </div>
+     </div>
+   </div>
+  </div>
