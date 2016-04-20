@@ -1,4 +1,4 @@
-var Event = require('./eventsModel.js');
+var Event = require('./eventModel.js');
 
 module.exports = {
   // 
