@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var Restaurant = require('../restaurants/restaurantModel.js');
 
 var eventSchema = new mongoose.Schema({
   name: {
@@ -12,7 +13,14 @@ var eventSchema = new mongoose.Schema({
   date: {
     type: Date,
     required: true
-  }
+  },
+  locales: [
+    {
+     type: Schema.ObjectID,
+     ref: 'Restaurant',
+     default: []
+    }
+  ] 
 });
 
 var Event = mongoose.model('Event', eventSchema);
