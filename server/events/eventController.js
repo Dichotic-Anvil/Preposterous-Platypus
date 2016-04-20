@@ -4,6 +4,7 @@ module.exports = {
   // 
   addOne: function(req, res) {
     var newEvent = req.body;
+    console.log(newEvent);
     Event.create(newEvent, function(err, data) {
       if (err) {
         return res.json(err);
