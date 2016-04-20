@@ -6,7 +6,7 @@ angular.module('platypus.events', [])
 
   $scope.data.likes = {};
 
-  $scope.toggleForm = true;
+  $scope.toggleForm = false;
 
   $scope.events = [];
 
