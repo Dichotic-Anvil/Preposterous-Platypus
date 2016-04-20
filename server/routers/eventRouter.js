@@ -1,13 +1,13 @@
 var eventRouter = require('express').Router();
 
-var eventRouter = require('../events/eventController.js');
+var eventController = require('../events/eventController.js');
 
 eventRouter.route('/events')
-                .get(eventRouter.retrieveAll)
-                .post(eventRouter.addOne);
+                .get(eventController.retrieveAll)
+                .post(eventController.addOne);
 
 eventRouter.route('/event/:event_id')
-                .get(eventRouter.retrieveAll)
-                .post(eventRouter.addOne);
+                .get(eventController.retrieveAll)
+                .post(eventController.addOne);
 
 module.exports = userRouter;
