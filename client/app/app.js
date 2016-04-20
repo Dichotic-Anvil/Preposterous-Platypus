@@ -5,7 +5,8 @@ angular.module('platypus', [
   'platypus.services',
   'platypus.food-feed',
   'platypus.food-add',
-  'platypus.foodServices'
+  'platypus.foodServices',
+  'platypus.events'
   ])
 
 .config(function ($routeProvider, $httpProvider) {
@@ -32,6 +33,11 @@ angular.module('platypus', [
     .when('/user/settings', {
       templateUrl: 'app/user/settings.html',
       controller: 'UserController',
+      authenticate: true
+    })    
+    .when('/events/feed', {
+      templateUrl: 'app/channels/events/events.html',
+      controller: 'EventsController',
       authenticate: true
     })
     .otherwise({
