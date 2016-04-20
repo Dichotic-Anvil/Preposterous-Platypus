@@ -32,30 +32,23 @@
       </div>
 </div>
 
-<div class="distance message">
-  <div class="alert alert-warning" role="alert">
-    All results are within a 2 mile radius of Hack Reactor - <strong>944 Market St. San Francisco, CA 94012</strong>
-  </div>
-</div>
+    <!--Add Event Items-->
+  <div class="row">
+    <div class="col-lg-3 col-sm-6 col-md-3" ng-repeat="">
 
- <div class="row">
-   <div class="col-lg-3 col-sm-6 col-md-3" data-ng-repeat="restaurant in data.restaurants | filter:feedFilter | orderBy: feedOrder">
-     <div class="thumbnail">
-       <img ng-src="{{restaurant.image_url}}" alt="{{restaurant.name}}" class="img-rounded">
-         <div class="caption">
-           <span class="thumbnail-title">{{restaurant.name}}</span>
-           <div class="row category-holder">
-             <span class="glyphicon glyphicon-tag"></span> 
-             <span ng-repeat="category in restaurant.categories">
-             <span ng-hide="category === restaurant.categories[0]">, </span>{{category}}</span>
-           </div>
-           <div class="row">
-             <a role="button" class="btn btn-default" ng-class="{'btn-primary' : data.likes[restaurant._id]}" ng-click="updateLikes(restaurant._id)">
-             <span class="glyphicon glyphicon-thumbs-up"></span>
-             {{restaurant.likes}}
-             </a>
-           </div>
-         </div>
-     </div>
-   </div>
+      <div class="thumbnail">
+        <img ng-src="{{restaurant.restaurant.image_url}}" alt="{{restaurant.restaurant.name}}" class="img-rounded">
+        <div class="caption">
+
+          <span class="thumbnail-title">{{restaurant.restaurant.name}}</span>
+
+          <div class="row">
+            <a role="button" class="btn btn-primary" ng-click="updateLikes(restaurant.restaurant._id)">
+            <span class="glyphicon glyphicon-thumbs-up"></span>
+            {{restaurant.restaurant.likes}}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
