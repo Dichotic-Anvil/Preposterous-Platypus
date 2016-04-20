@@ -1,9 +1,11 @@
 var mongoose = require('mongoose');
-var relationship = require("mongoose-relationship");
+var Schema = mongoose.Schema;
+var relationship = require('mongoose-relationship');
+var Event = require('../events/eventModel.js')
 
 // Flesh out our User schema and register the model with Mongoose
 
-var restaurantSchema = new mongoose.Schema({
+var restaurantSchema = new Schema({
   parent: {type: Schema.ObjectId, ref: 'Event', childPath: 'locales'},
   name: {
     type: String,

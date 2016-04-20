@@ -1,7 +1,9 @@
 var mongoose = require('mongoose');
 var Restaurant = require('../restaurants/restaurantModel.js');
+var Schema = mongoose.Schema;
 
-var eventSchema = new mongoose.Schema({
+
+var eventSchema = new Schema({
   name: {
     type: String,
     required: true
@@ -16,7 +18,7 @@ var eventSchema = new mongoose.Schema({
   },
   locales: [
     {
-     type: Schema.ObjectID,
+     type: Schema.ObjectId,
      ref: 'Restaurant',
      default: []
     }

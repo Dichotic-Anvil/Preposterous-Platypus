@@ -10,4 +10,4 @@ eventRouter.route('/event/:event_id')
                 .get(eventController.retrieveAll)
                 .post(eventController.addOne);
 
-module.exports = userRouter;
+module.exports = eventRouter;
