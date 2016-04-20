@@ -233,4 +233,32 @@ angular.module('platypus.foodServices', [])
     addOrRemove: addOrRemove,
     findUserLikes: findUserLikes
   };
-});
+})
+.factory('Events', function ($http) {
+  var getAll = function() {
+    return $http({
+      method: 'GET',
+      url: '/api/events',
+    })
+    .then(function(resp) {
+      console.log('GET request was successful!');
+      return resp.data;
+    });
+  };
+
+  var createOne = function(data) {
+    return $http({
+      method: 'POST',
+      url: '/api/events',    
+      data: data
+    })
+    .then(function(resp) {
+      console.log('POST request was successful!');
+      return resp;
+    });
+  };
+  return {
+    getAll: getAll,
+    createOne: createOne
+  };
+})
