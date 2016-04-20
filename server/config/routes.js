@@ -5,6 +5,7 @@ var userController = require('../users/userController.js');
 var restaurantRouter = require('../routers/restaurantRouter.js');
 var userRouter = require('../routers/userRouter.js');
 var likesRouter = require('../routers/likesRouter.js');
+var eventsRouter = require('../routers/eventsRouter.js');
 
 module.exports = function (app, express, passport) {
   var isAuth = function(req, res, next) {
@@ -35,4 +36,5 @@ module.exports = function (app, express, passport) {
   app.use('/api/restaurants', isAuth, restaurantRouter);
   app.use('/api/users', isAuth, userRouter);
   app.use('/api/likes', isAuth, likesRouter);
+  app.use('/api/events', isAuth, eventsRouter);
 };
