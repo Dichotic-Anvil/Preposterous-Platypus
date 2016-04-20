@@ -62,7 +62,7 @@ angular.module('platypus.events', [])
       console.log('Event has been created', resp);
       Events.getAll()
       .then(function(events) {
-        console.log("retrievingAll: frontend controller", resp);
+        console.log("retrievingAll: frontend controller", events);
       });
     })
     .catch(function(error){
