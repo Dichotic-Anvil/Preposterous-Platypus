@@ -1,4 +1,4 @@
-angular.module('platypus.events', ['platypus.services'])
+angular.module('platypus.events', [])
 
 .controller('EventsController', function($scope, Likes, Restaurants, Events){
 
