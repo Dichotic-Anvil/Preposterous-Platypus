@@ -37,4 +37,6 @@ module.exports = function (app, express, passport) {
   app.use('/api/users', isAuth, userRouter);
   app.use('/api/likes', isAuth, likesRouter);
   app.use('/api/events', isAuth, eventRouter);
+  app.use('/api/event_business', isAuth, event_businessRouter);
+  app.use('/api/event_upvotes', isAuth, event_upvotesRouter);
 };
