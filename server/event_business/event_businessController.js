@@ -1,11 +1,9 @@
-var Restaurant = require('../restaurants/restaurantModel.js');
-var Likes = require('../likes/likesModel.js');
-var User = require('../users/userModel.js');
+var EventBiz = require('../event_business/event_businessModel.js');
 module.exports = {
   //all methods - find, findOne, addOne, delete, deleteOne
   addOne: function(req, res) {
-    var newRestaurant = req.body;
-    Restaurant.create(newRestaurant, function(err, data) {
+    var newEventBiz = req.body;
+    EventBiz.create(newEventBiz, function(err, data) {
       if (err) {
         return res.json(err);
       }
@@ -14,7 +12,7 @@ module.exports = {
   },
 
   retrieveYelpIDs: function(req, res) {
-    Restaurant.find({}, 'yelpID', function(err, data) {
+    EventBiz.find({}, 'yelpID', function(err, data) {
       if (err) {
         return res.json(err);
       }
@@ -29,7 +27,7 @@ module.exports = {
       new: true,
       upsert: true
     };
-    Restaurant.findOneAndUpdate(query, updatedProps, options, function(err, data) {
+    EventBiz.findOneAndUpdate(query, updatedProps, options, function(err, data) {
       if (err) {
         return res.json(err);
       }
@@ -61,7 +59,7 @@ module.exports = {
 
   removeOne: function(req, res) {
     var query = { _id: req.params.id };
-    Restaurant.findOneAndRemove(query, function(err, data) {
+    EventBiz.findOneAndRemove(query, function(err, data) {
       if (err) {
         return res.json(err);
       }
@@ -71,7 +69,7 @@ module.exports = {
 
   retrieveOne: function(req, res) {
     var query = { _id: req.params.id };
-    Restaurant.findOne(query, function(err, data) {
+    EventBiz.findOne(query, function(err, data) {
       if (err) {
         return res.json(err);
       }
@@ -82,7 +80,7 @@ module.exports = {
   retrieveAll: function(req, res) {
     var query = req.query;
     console.log("retrievingAll: backend controller");
-    Restaurant.find({}, function(err, data) {
+    EventBiz.find({}, function(err, data) {
       if (err) {
         return res.json(err);
       }

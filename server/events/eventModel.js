@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var Restaurant = require('../restaurants/restaurantModel.js');
+var EventBiz = require('../event_business/event_businessModel.js');
 var Schema = mongoose.Schema;
 
 
@@ -8,11 +8,11 @@ var eventSchema = new Schema(
     name: String,
     time: Date,
     date: Date,
-    locales: 
+    eventBiz: 
     [
       {
        type: Schema.ObjectId,
-       ref: 'Restaurant',
+       ref: 'EventBiz',
        default: []
       }
     ] 
