@@ -262,3 +262,51 @@ angular.module('platypus.foodServices', [])
     createOne: createOne
   };
 })
+
+.factory('EventBiz', function ($http) {
+
+  var addOne = function(data, callback) {
+    return $http({
+      method: 'POST',
+      url: '/api/event_business',    
+      data: data
+    })
+    .then(function(resp) {
+      console.log('EventBiz created', resp);
+      callback(resp);
+    });
+  };
+
+  var removeOne = function(data) {
+    return $http({
+      method: 'DELETE',
+      url: '/api/events/',    
+      data: data
+    })
+    .then(function(resp) {
+      console.log('DELETE request was successful!');
+      return resp;
+    });
+  };
+
+  // var updateOne = function(data) {
+  //   return $http({
+  //     method: 'PUT',
+  //     url: '/api/restaurants',    
+  //     data: {
+  //       restaurant: data
+  //     }
+  //   })
+  //   .then(function(resp) {
+  //     console.log('updateLikes - PUT request was successful!');
+  //     return resp.data;
+  //   });
+  // };
+
+  return {
+    addOne: addOne,
+    removeOne: removeOne,
+    // updateOne: updateOne
+  };
+  
+})
