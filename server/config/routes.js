@@ -6,6 +6,9 @@ var restaurantRouter = require('../routers/restaurantRouter.js');
 var userRouter = require('../routers/userRouter.js');
 var likesRouter = require('../routers/likesRouter.js');
 var eventRouter = require('../routers/eventRouter.js');
+var event_businessRouter = require('../routers/event_businessRouter.js');
+var event_upvotesRouter = require('../routers/event_upvotesRouter.js');
+
 
 module.exports = function (app, express, passport) {
   var isAuth = function(req, res, next) {

@@ -1,4 +1,4 @@
-var Restaurant = require('./restaurantModel.js');
+var Restaurant = require('../restaurants/restaurantModel.js');
 var Likes = require('../likes/likesModel.js');
 var User = require('../users/userModel.js');
 module.exports = {
