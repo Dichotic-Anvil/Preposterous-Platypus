@@ -13,7 +13,7 @@
     <input type="date" class="form-control" placeholder="Event Date" ng-model="event.date">
     <label for="eventTime">Time of Event</label>
     <input type="time" class="form-control" placeholder="Event Time" ng-model="event.time">
-  </div>  
+  </div>
   <button type="submit" class="btn btn-default" ng-Click="toggleForm = !toggleForm">Create Event</button>
 </form>
 <br>
@@ -34,18 +34,15 @@
 
     <!--Add Event Items-->
   <div class="row">
-    <div class="col-lg-3 col-sm-6 col-md-3" ng-repeat="">
+    <div class="col-lg-3 col-sm-6 col-md-3" ng-repeat="event in events">
 
       <div class="thumbnail">
-        <img ng-src="{{restaurant.restaurant.image_url}}" alt="{{restaurant.restaurant.name}}" class="img-rounded">
         <div class="caption">
-
-          <span class="thumbnail-title">{{restaurant.restaurant.name}}</span>
+          <span class="thumbnail-title">{{events.name}}</span>
 
           <div class="row">
-            <a role="button" class="btn btn-primary" ng-click="updateLikes(restaurant.restaurant._id)">
-            <span class="glyphicon glyphicon-thumbs-up"></span>
-            {{restaurant.restaurant.likes}}
+            <a role="button" class="btn btn-primary" ng-click="updateEvents()">
+            {{events}}
             </a>
           </div>
         </div>

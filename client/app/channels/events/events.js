@@ -60,15 +60,21 @@ angular.module('platypus.events', [])
     Events.createOne(event)
     .then(function(resp){
       console.log('Event has been created', resp);
-      Events.getAll()
-      .then(function(events) {
-        console.log("retrievingAll: frontend controller", events);
-      });
-    })
+      $scope.loadEvents();
+      })
     .catch(function(error){
       console.log('error');
     });
   };
+
+ $scope.loadEvents = function() {
+  Events.getAll()
+    .then(function(events) {
+      $scope.events = events;
+      console.log($scope.events);
+    });
+  };
+$scope.loadEvents();
 });
 
 
