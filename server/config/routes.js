@@ -6,6 +6,9 @@ var restaurantRouter = require('../routers/restaurantRouter.js');
 var userRouter = require('../routers/userRouter.js');
 var likesRouter = require('../routers/likesRouter.js');
 var eventRouter = require('../routers/eventRouter.js');
+var event_businessRouter = require('../routers/event_businessRouter.js');
+var event_upvotesRouter = require('../routers/event_upvotesRouter.js');
+
 
 module.exports = function (app, express, passport) {
   var isAuth = function(req, res, next) {
@@ -37,4 +40,6 @@ module.exports = function (app, express, passport) {
   app.use('/api/users', isAuth, userRouter);
   app.use('/api/likes', isAuth, likesRouter);
   app.use('/api/events', isAuth, eventRouter);
+  app.use('/api/event_business', isAuth, event_businessRouter);
+  app.use('/api/event_upvotes', isAuth, event_upvotesRouter);
 };

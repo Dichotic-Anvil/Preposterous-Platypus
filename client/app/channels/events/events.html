@@ -38,12 +38,13 @@
 
       <div class="thumbnail">
         <div class="caption">
-          <span class="thumbnail-title">{{events.name}}</span>
+          <span class="thumbnail-title">Event: {{event.name}}</span>
+          <div>{{event.date | date:'fullDate'}}</div>
+          <div>{{event.time | date: 'shortTime'}}</div>
+          <div>{{event.description}}</div>
 
           <div class="row">
-            <a role="button" class="btn btn-primary" ng-click="updateEvents()">
-            {{events}}
-            </a>
+            <a role="button" class="btn btn-primary" ng-click="goToEvent(event._id)"> Check out event</a>
           </div>
         </div>
       </div>

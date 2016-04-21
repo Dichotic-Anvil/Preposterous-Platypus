@@ -6,7 +6,9 @@ angular.module('platypus', [
   'platypus.food-feed',
   'platypus.food-add',
   'platypus.foodServices',
-  'platypus.events'
+  'platypus.events',
+  'platypus.event',
+  'platypus.addToEvent'
   ])
 
 .config(function ($routeProvider, $httpProvider) {
@@ -38,6 +40,16 @@ angular.module('platypus', [
     .when('/events/feed', {
       templateUrl: 'app/channels/events/events.html',
       controller: 'EventsController',
+      authenticate: true
+    })
+    .when('/events/:event_id', {
+      templateUrl: 'app/channels/event/event.html',
+      controller: 'EventController',
+      authenticate: true
+    })
+    .when('/addtoevent/:event_id/', {
+      templateUrl: 'app/channels/addtoevent/addtoevent.html',
+      controller: 'AddToEventController',
       authenticate: true
     })
     .otherwise({

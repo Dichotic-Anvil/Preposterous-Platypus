@@ -1,0 +1,38 @@
+<div class="container">
+<div ng-include="'app/partials/nav.html'"></div>
+<div> YO YO YO YO YO</div>
+ <div class="row feed-filter">
+ <div class="col-lg-3 col-md-3 text-hide">&nbsp;</div>
+
+   <label class="control-label col-md-2 col-lg-2">Search:</label>
+
+   <div class="col-lg-4 col-md-4">
+     <input type="text" class="form-control" ngSubmit = "search()" ng-model="name" ng-keypress="$event.which === 13 && search()" placeholder="Restaurant Name..." autofocus>
+     </div>
+ </div>
+
+ <div class="distance message">
+   <div class="alert alert-warning" role="alert">
+     All results are within a 2 mile radius of Hack Reactor - <strong>944 Market St. San Francisco, CA 94012</strong>
+   </div>
+ </div>
+
+ <div class="row">
+ <img src="/../../../assets/loading.gif" ng-show="loading" class="center-block">
+ <div class="col-lg-3 col-sm-6 col-md-3" data-ng-repeat="restaurant in data.restaurants.data.businesses">
+   <div class="thumbnail" ng-class="{'existing-thumb' : data.currentRestaurants[restaurant.id]}">
+         <img ng-src="{{restaurant.image_url}}" alt="{{restaurant.name}}" class="img-rounded">
+         <div class="caption">
+           <span class="thumbnail-title">{{restaurant.name}}</span>
+           <address>
+             <span ng-repeat="address in restaurant.location.display_address">{{address}}<br></span>
+           </address>
+           <a class="btn btn-success" role="button" ng-click="addOne(restaurant)" ng-hide="data.currentRestaurants[restaurant.id]">
+           <span role="button" class="glyphicon glyphicon-plus"></span> Add
+           </a>
+           <span ng-show="data.currentRestaurants[restaurant.id]"><strong>Already Added</strong></span>
+         </div>
+       </div>
+       </div>
+ </div>
+ </div> 
