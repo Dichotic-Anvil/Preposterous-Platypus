@@ -5,8 +5,8 @@ var Event = require('../events/eventModel.js')
 
 // Flesh out our User schema and register the model with Mongoose
 
-var restaurantSchema = new Schema({
-  parent: {type: Schema.ObjectId, ref: 'Event', childPath: 'locales'},
+var eventBizSchema = new Schema({
+  parent: {type: Schema.ObjectId, ref: 'Event', childPath: 'eventBiz'},
   name: {
     type: String,
     unique: true,
@@ -21,11 +21,11 @@ var restaurantSchema = new Schema({
     required: false
   },
   image_url: String,
-  likes: Number,
+  upvotes: Number,
   categories: [{type: String}]
 });
 
-restaurantSchema.plugin(relationship, {relationshipPathName: 'parent'});
-var Restaurant = mongoose.model('Restaurant', restaurantSchema);
+eventBizSchema.plugin(relationship, {relationshipPathName: 'parent'});
+var EventBiz = mongoose.model('EventBiz', eventBizSchema);
 
-module.exports = Restaurant;
+module.exports = EventBiz;
