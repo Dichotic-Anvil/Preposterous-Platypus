@@ -14,7 +14,9 @@ module.exports = {
   },
   retrieveOne: function(req, res) {
     var query = { _id: req.params.id };
-    Event.findOne(query, function(err, data) {
+    Event.findOne(query)
+    .populate('locales')
+    .exec(function(err, data) {
       if (err) {
         return res.json(err);
       }
