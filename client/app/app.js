@@ -47,7 +47,7 @@ angular.module('platypus', [
       controller: 'EventController',
       authenticate: true
     })
-    .when('/addtoevent/:event_id/', {
+    .when('/addtoevent/:event_id', {
       templateUrl: 'app/channels/addtoevent/addtoevent.html',
       controller: 'AddToEventController',
       authenticate: true
