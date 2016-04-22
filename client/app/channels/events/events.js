@@ -11,7 +11,7 @@ angular.module('platypus.events', [])
   $scope.events = [];
 
   $scope.goToEvent = function (eventId) {
-    $location.path('/addtoevent/'+ eventId);
+    $location.path('/events/'+ eventId);
   }
 
 
