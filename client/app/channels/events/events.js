@@ -69,7 +69,7 @@ angular.module('platypus.events', [])
       $http({
     method: 'POST',
     url: "https://hooks.slack.com/services/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",
-    data: JSON.stringify({"text": "@channel: we created a new event, here are the details: \n " + " name: \n"  + resp.data.name + "date: " + resp.data.date }),
+    data: JSON.stringify({"text": "Hey <!channel>, there's a new event! " + " \n " + "Event: "  + resp.data.name + "\n"  + "When: " + new Date(resp.data.date).toString()  + "\n" + "Link: http://127.0.0.1:8000/#/events/" + resp.data._id }),
     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
     })
     })
