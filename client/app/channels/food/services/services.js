@@ -263,50 +263,27 @@ angular.module('platypus.foodServices', [])
   };
 })
 
-.factory('EventBiz', function ($http) {
+.factory('Event', function ($http) {
 
-  var addOne = function(data, callback) {
+  var getOne = function (event_id) {
     return $http({
-      method: 'POST',
-      url: '/api/event_business',    
-      data: data
+      method: 'GET',
+      url: '/api/events/' + event_id,
     })
     .then(function(resp) {
-      console.log('EventBiz created', resp);
-      callback(resp);
-    });
-  };
-
-  var removeOne = function(data) {
-    return $http({
-      method: 'DELETE',
-      url: '/api/events/',    
-      data: data
+      console.log("THIS IS THE DATA", resp.data);
+      console.log("THIS IS THE NAME OF THE EVENT", resp.data.name);
+      console.log("THESE ARE THE VOTES", resp.data.votes[0]);
+      console.log("THESE ARE THE AMOUNT OF VOTERS", resp.data.votes[0].voters.length);
+      console.log("THESE ARE THE VOTERS", resp.data.votes[0].voters[0].name)
+      console.log("THIS IS THE DATA", resp.data);
+      console.log('GET request was successful!');
+      return resp.data;
     })
-    .then(function(resp) {
-      console.log('DELETE request was successful!');
-      return resp;
-    });
   };
-
-  // var updateOne = function(data) {
-  //   return $http({
-  //     method: 'PUT',
-  //     url: '/api/restaurants',    
-  //     data: {
-  //       restaurant: data
-  //     }
-  //   })
-  //   .then(function(resp) {
-  //     console.log('updateLikes - PUT request was successful!');
-  //     return resp.data;
-  //   });
-  // };
-
+ 
   return {
-    addOne: addOne,
-    removeOne: removeOne,
-    // updateOne: updateOne
+    getOne: getOne,
   };
   
 })

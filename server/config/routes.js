@@ -38,6 +38,6 @@ module.exports = function (app, express, passport) {
   app.use('/api/restaurants', isAuth, restaurantRouter);
   app.use('/api/users', isAuth, userRouter);
   app.use('/api/likes', isAuth, likesRouter);
-  app.use('/api/events', isAuth, eventRouter);
+  app.use('/api/events', eventRouter);
   // app.use('/api/event_upvotes', isAuth, event_upvotesRouter);
 };
