@@ -1,6 +1,6 @@
 angular.module('platypus.events', [])
 
-.controller('EventsController', function($scope, $location, Likes, Restaurants, Events){
+.controller('EventsController', function($scope, $http, $location, Likes, Restaurants, Events){
 
   // $scope.data = {};
 
@@ -65,7 +65,14 @@ angular.module('platypus.events', [])
     .then(function(resp){
       console.log('Event has been created', resp);
       $scope.loadEvents();
-      })
+      console.log('Sent to Slack!');
+      $http({
+    method: 'POST',
+    url: "https://hooks.slack.com/services/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",
+    data: JSON.stringify({"text": "@channel: we created a new event, here are the details: \n " + " name: \n"  + resp.data.name + "date: " + resp.data.date }),
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    })
+    })
     .catch(function(error){
       console.log('error');
     });
@@ -79,6 +86,18 @@ angular.module('platypus.events', [])
     });
   };
 $scope.loadEvents();
-});
 
+   $scope.sendToSlack = function() {
+
+};
+
+ $scope.loadEvents = function() {
+  Events.getAll()
+    .then(function(events) {
+      $scope.events = events;
+      console.log($scope.events);
+    });
+  };
+$scope.loadEvents();
+});
 
