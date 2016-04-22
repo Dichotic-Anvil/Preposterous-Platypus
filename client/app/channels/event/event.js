@@ -3,10 +3,12 @@ angular.module('platypus.event', [])
 
   var event_id = $routeParams.event_id;
 
+  console.log(event_id);
+
   var event;
 
-  $scope.addToEvent = function (eventId) {
-    $location.path('/addtoevent/'+ eventId);
+  $scope.addToEvent = function () {
+    $location.path('/addtoevent/'+ event_id);
   }
 
   var loadEvent = function () {
