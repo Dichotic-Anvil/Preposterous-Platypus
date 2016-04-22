@@ -1,31 +1,21 @@
 angular.module('platypus.event', [])
- .controller('EventController', function($scope, $routeParams, YelpApi, Restaurants, $location, $http){
+ .controller('EventController', function($scope, $routeParams, YelpApi, Restaurants, $location, $http, Event){
 
   var event_id = $routeParams.event_id;
-
-  console.log(event_id);
-
-  var event;
+  $scope.eventData = {};
 
   $scope.addToEvent = function () {
     $location.path('/addtoevent/'+ event_id);
   }
 
-  var loadEvent = function () {
-    return $http({
-      method: 'GET',
-      url: '/api/events/' + event_id,
-    })
-    .then(function(resp) {
-      console.log(resp);
-      console.log('GET request was successful!');
-       event = resp.data;
+  Event.getOne(event_id)
+    .then(function(event) {
+      $scope.eventData.event = event;
+        console.log("RETRIEVED EVENT", event);
+      })
+    .catch(function(err) {
+      console.error(err);
     });
-  };
-
-  loadEvent();
-  console.log(event);
-
 
 
   $scope.data = {};
