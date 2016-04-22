@@ -5,6 +5,10 @@ angular.module('platypus.event', [])
 
   var event;
 
+  $scope.addToEvent = function (eventId) {
+    $location.path('/addtoevent/'+ eventId);
+  }
+
   var loadEvent = function () {
     return $http({
       method: 'GET',
