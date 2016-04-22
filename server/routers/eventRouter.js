@@ -8,6 +8,12 @@ eventRouter.route('/')
 
 eventRouter.route('/:id')
                 .get(eventController.retrieveOne)
-                .post(eventController.addOne);
+                .put(eventController.updateOne);
+
+eventRouter.route('/:id/add_restaurant')
+                .post(eventController.addRestaurant);
+
+eventRouter.route('/:id/vote')
+                .post(eventController.vote);
 
 module.exports = eventRouter;

@@ -1,23 +1,40 @@
 var mongoose = require('mongoose');
-var EventBiz = require('../event_business/event_businessModel.js');
 var Schema = mongoose.Schema;
+var relationship = require('mongoose-relationship');
 
 
 var eventSchema = new Schema(
   {
     name: String,
-    time: Date,
     date: Date,
-    eventBiz: 
+    options: 
     [
       {
        type: Schema.ObjectId,
-       ref: 'EventBiz',
+       ref: 'Restaurant',
        default: []
       }
-    ] 
+    ],
+    votes: [
+      {
+        restaurant: {
+          type: Schema.ObjectId,
+          ref: 'Restaurant',
+        },
+        voters: [
+          {
+            type: Schema.ObjectId,
+            ref: 'User',
+            default: []
+          }
+        ]
+      }
+    ],
 });
 
+eventSchema.pre('save', function(next){
+  next();
+})
 var Event = mongoose.model('Event', eventSchema);
 
 module.exports = Event;

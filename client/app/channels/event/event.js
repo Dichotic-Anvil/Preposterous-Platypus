@@ -1,7 +1,26 @@
 angular.module('platypus.event', [])
- .controller('EventController', function($scope, $routeParams, YelpApi, Restaurants, Event, $location){
+ .controller('EventController', function($scope, $routeParams, YelpApi, Restaurants, $location, $http){
 
   var event_id = $routeParams.event_id;
+
+  var event;
+
+  var loadEvent = function () {
+    return $http({
+      method: 'GET',
+      url: '/api/events/' + event_id,
+    })
+    .then(function(resp) {
+      console.log(resp);
+      console.log('GET request was successful!');
+       event = resp.data;
+    });
+  };
+
+  loadEvent();
+  console.log(event);
+
+
 
   $scope.data = {};
   $scope.loading = false;
@@ -24,31 +43,35 @@ angular.module('platypus.event', [])
     });
   };
 
-  $scope.addOne = function(restaurant){
-    var restaurantCategories = [];
+  $scope.retrieveAll = function(){
 
-    // Categories Have extra information that has to be sanitized 
-    for(var i = 0; i < restaurant.categories.length; i++) {
-      restaurantCategories.push(restaurant.categories[i][0]);
-    }
-
-    EventBiz.addOne({
-      name: restaurant.name,
-      yelpID: restaurant.id,
-      eat24_url: restaurant.eat24_url || null,
-      image_url: restaurant.image_url,
-      upvote: 0,
-      categories: restaurantCategories
-    }, function(resp) {
-       var id = {restaurant: resp.data._id};
-      $location.path('/events/' + event_id);
-        // Likes.addOne(id, function(resp) {
-        //   Restaurants.updateLikes(id.restaurant) 
-        //   .then(function(resp){
-        //     console.log('Response to like update', resp);
-        //   });
-        // });
-    });
   }
+
+  // $scope.addOne = function(restaurant){
+  //   // var restaurantCategories = [];
+
+  //   // // Categories Have extra information that has to be sanitized 
+  //   // for(var i = 0; i < restaurant.categories.length; i++) {
+  //   //   restaurantCategories.push(restaurant.categories[i][0]);
+  //   //}
+
+  //   EventBiz.addOne({
+  //     name: restaurant.name,
+  //     yelpID: restaurant.id,
+  //     eat24_url: restaurant.eat24_url || null,
+  //     image_url: restaurant.image_url,
+  //     upvote: 0,
+  //     // categories: restaurantCategories
+  //   }, function(resp) {
+  //      var id = {restaurant: resp.data._id};
+  //     $location.path('/events/' + event_id);
+  //       // Likes.addOne(id, function(resp) {
+  //       //   Restaurants.updateLikes(id.restaurant) 
+  //       //   .then(function(resp){
+  //       //     console.log('Response to like update', resp);
+  //       //   });
+  //       // });
+  //   });
+  // }
 
  });
