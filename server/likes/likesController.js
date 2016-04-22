@@ -17,6 +17,9 @@ module.exports = {
   },
 
   retrieveAll: function(req, res) {
+
+    console.log('current user: [' + req.session.passport.user + ']');
+
     var query = req.query;
     Likes.find(query, function(err, response) {
       if (err) {
@@ -47,6 +50,9 @@ module.exports = {
   },
 
   retrieveLikedRestaurants: function(req, res) {
+
+  console.log('current user: [' + req.session.passport.user + ']');
+
     var query = { user: req.session.passport.user };
     // var restaurant = { restaurant: req.body.restaurant };
     Likes
