@@ -6,6 +6,7 @@ var relationship = require('mongoose-relationship');
 var eventSchema = new Schema(
   {
     name: String,
+    description: String,
     date: Date,
     options: 
     [
