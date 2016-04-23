@@ -1,21 +1,18 @@
 <div class="container">
 <div ng-include="'app/partials/nav.html'"></div>
-<div> THIS IS A SPECIFIC EVENT</div>
   <div class="row feed-filter">
     <div class="col-lg-3 col-md-3 text-hide">&nbsp;</div>
   </div>
 
   <div class="event-details row">
     <p class="event-title">{{eventData.event.name}}</p>
-    <p class="event-date">{{eventData.event.date}} @ {{eventData.event.time}}</p>
-    <br>
+    <p class="event-date">When: {{eventData.event.date}} @ {{eventData.event.time}}</p>
+    <p class="event-date">Time: {{eventData.event.date}} @ {{eventData.event.time}}</p>
+    <p class="event-date">Details: {{eventData.event.description}}</p>
     <hr>
-  </div>
-  <div>
-    <br>
   <button class="btn btn-default" ng-Click="addToEvent()">Add a place</button>
-    <p class="current-leader-title">Current Leader: <span class="current-leader">{{event.restaurant.name}}</span></p>
   </div>
+
 
    <!--Add Dashboard Items-->
   <div class="row">
