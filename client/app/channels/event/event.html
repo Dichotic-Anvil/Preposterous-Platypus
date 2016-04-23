@@ -3,12 +3,12 @@
 <div> THIS IS A SPECIFIC EVENT</div>
   <div class="row feed-filter">
     <div class="col-lg-3 col-md-3 text-hide">&nbsp;</div>
-
   </div>
+  <button class="btn btn-default" ng-Click="addToEvent()">Add a place</button>
 
   <div class="event-details row">
-    <p class="event-title">{{event.name}}</p>
-    <p class="event-date">{{event.date}} @ {{event.time}}</h2>
+    <p class="event-title">{{eventData.event.name}}</p>
+    <p class="event-date">{{eventData.event.date}} @ {{eventData.event.time}}</h2>
     <br>
     <hr>
   </div>
