@@ -9,9 +9,9 @@
   <div class="form-group">
     <label for="eventName">Name of Event</label>
     <input type="text" class="form-control" placeholder="Event title" ng-model="event.name">
-    <label for="eventDate">Date of Event</label>
+    <label for="eventDate">Date of Event</label><br>
      <input type="datetime-local"  name="input" ng-model="event.date"
-       placeholder="yyyy-MM-ddTHH:mm:ss" min="2016-04-023T00:00:00" max="2090-12-31T00:00:00" required />
+       placeholder="yyyy-MM-ddTHH:mm:ss" min="2016-04-023T00:00:00" max="2090-12-31T00:00:00" required /><br>
     <label for="eventDescription">Description</label>
     <input type="text" class="form-control" placeholder="Event Desciption" ng-model="event.description">
 
@@ -48,10 +48,7 @@
         <div class="event-caption">
           <span class="thumbnail-title">Event: {{event.name}}</span>
           <div class="thumbnail-detail">{{event.date | date:'medium'}}</div>
-          <div class="thumbnail-detail">{{event.description}}</div>
-          <div class="row">
-            <a role="button" class="btn btn-primary" ng-click="goToEvent(event._id)"> Check out event</a>
-          </div>
+          <span class="thumbnail-detail">{{event.description}}</span>
           <a role="button" class="btn btn-primary" ng-click="goToEvent(event._id)"> Get the details</a>
           <div class="row"></div>
         </div>
