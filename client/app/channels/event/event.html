@@ -4,20 +4,43 @@
   <div class="row feed-filter">
     <div class="col-lg-3 col-md-3 text-hide">&nbsp;</div>
   </div>
-  <button class="btn btn-default" ng-Click="addToEvent()">Add a place</button>
 
   <div class="event-details row">
     <p class="event-title">{{eventData.event.name}}</p>
-    <p class="event-date">{{eventData.event.date}} @ {{eventData.event.time}}</h2>
+    <p class="event-date">{{eventData.event.date}} @ {{eventData.event.time}}</p>
     <br>
     <hr>
   </div>
   <div>
     <br>
+  <button class="btn btn-default" ng-Click="addToEvent()">Add a place</button>
     <p class="current-leader-title">Current Leader: <span class="current-leader">{{event.restaurant.name}}</span></p>
   </div>
 
- <div class="row">
+   <!--Add Dashboard Items-->
+  <div class="row">
+    <div class="col-lg-3 col-sm-6 col-md-3" ng-repeat="restaurant in eventData.event.options">
+      <div class="thumbnail">
+        <img ng-src="{{restaurant.image_url}}" alt="{{restaurant.name}}" class="img-rounded">
+        <div class="caption">
+          <span class="thumbnail-title">{{restaurant.name}}</span>
+          <div class="row category-holder">
+            <span class="glyphicon glyphicon-tag"></span>
+            <span ng-repeat="category in .restaurant.categories">
+            <span ng-hide="category === restaurant.categories[0]">, </span>{{category}}</span>
+          </div>
+          <div class="row">
+            <a role="button" class="btn btn-primary" ng-click="vote(restaurant._id)">
+            <span class="glyphicon glyphicon-thumbs-up">Vote</span>
+            </a>
+            {{restaurant.votes.voters.length}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <!-- <div class="row">
  <img src="/../../../assets/loading.gif" ng-show="loading" class="center-block">
  <div class="col-lg-3 col-sm-6 col-md-3" data-ng-repeat="restaurant in data.restaurants.data.businesses">
    <div class="thumbnail" ng-class="{'existing-thumb' : data.currentRestaurants[restaurant.id]}">
@@ -34,5 +57,5 @@
          </div>
        </div>
        </div>
- </div>
+ </div> -->
  </div> 
