@@ -281,9 +281,22 @@ angular.module('platypus.foodServices', [])
       return resp.data;
     })
   };
- 
+
+  var addOneRestaurant = function(data, event_id) {
+    return $http({
+      method: 'POST',
+      url: '/api/events ' + event_id + '/' + add_restaurant,    
+      data: {restaurantId: data}
+    })
+    .then(function(resp) {
+      console.log('POST request was successful!');
+      return resp;
+    });
+  };
+
   return {
     getOne: getOne,
+    addOneRestaurant: addOneRestaurant
   };
   
 })

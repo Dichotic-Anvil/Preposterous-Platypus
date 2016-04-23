@@ -30,7 +30,7 @@
            <address>
              <span ng-repeat="address in restaurant.location.display_address">{{address}}<br></span>
            </address>
-           <a class="btn btn-success" role="button" ng-click="addOne(restaurant)" ng-hide="data.currentRestaurants[restaurant.id]">
+           <a class="btn btn-success" role="button" ng-click="addOneRestaurant(restaurant.id)" ng-hide="data.currentRestaurants[restaurant.id]">
            <span role="button" class="glyphicon glyphicon-plus"></span> Add
            </a>
            <span ng-show="data.currentRestaurants[restaurant.id]"><strong>Already Added</strong></span>
