@@ -34,19 +34,26 @@
       </div>
 </div>
 
+<div class="distance message">
+  <div class="alert alert-warning" role="alert">
+    All results are within a 2 mile radius of Hack Reactor - <strong>944 Market St. San Francisco, CA 94012</strong>
+  </div>
+</div>
+
     <!--Add Event Items-->
   <div class="row">
     <div class="col-lg-3 col-sm-6 col-md-3" ng-repeat="event in events">
 
-      <div class="thumbnail">
-        <div class="caption">
+      <div class="event-thumbnail">
+        <div class="event-caption">
           <span class="thumbnail-title">Event: {{event.name}}</span>
-          <div>{{event.date | date:'medium'}}</div>
-          <div>{{event.description}}</div>
-
+          <div class="thumbnail-detail">{{event.date | date:'medium'}}</div>
+          <div class="thumbnail-detail">{{event.description}}</div>
           <div class="row">
             <a role="button" class="btn btn-primary" ng-click="goToEvent(event._id)"> Check out event</a>
           </div>
+          <a role="button" class="btn btn-primary" ng-click="goToEvent(event._id)"> Get the details</a>
+          <div class="row"></div>
         </div>
       </div>
     </div>

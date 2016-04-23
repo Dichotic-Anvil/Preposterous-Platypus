@@ -152,6 +152,12 @@ address {
   height: 250px;
 }
 
+.event-thumbnail {
+  height: 150px;
+  background: white;
+  border-radius: 5px;
+}
+
 .caption {
   overflow: hidden;
 }
@@ -176,6 +182,49 @@ address {
 
 .caption .btn {
   float: right;
+}
+
+.event-title {
+  font-size: 2em;
+  color: #FFFFFF;
+  font-family:'fatfrank', sans-serif;
+  margin-bottom: 1em
+}
+
+.event-date {
+  font-size: 1em;
+  color: #FFFFFF;
+}
+
+.event-caption {
+  overflow: hidden;
+}
+
+.event-caption .row {
+  margin: 10px;
+}
+
+.event-caption .thumbnail-title {
+  font-weight: 800;
+  text-align: left;
+  padding-left: 20px;
+  height: 100%;
+  line-height: 100%;
+}
+
+.event-caption .thumbnail-detail {
+  font-weight: 400;
+  text-align: left;
+  padding-left: 20px;
+  height: 80%;
+  line-height: 100%;
+}
+
+
+.event-caption .btn {
+position: absolute;
+right:    25px;
+bottom:   10px;
 }
 
 .existing-thumb {
