@@ -1,22 +1,21 @@
 <div class="container">
 <div ng-include="'app/partials/nav.html'"></div>
 <div> THIS IS A SPECIFIC EVENT</div>
- <div class="row feed-filter">
- <div class="col-lg-3 col-md-3 text-hide">&nbsp;</div>
- <a role="button" class="btn btn-primary" ng-click="addToEvent()"> Add places to this event</a>
+  <div class="row feed-filter">
+    <div class="col-lg-3 col-md-3 text-hide">&nbsp;</div>
 
-   <label class="control-label col-md-2 col-lg-2">Search:</label>
+  </div>
 
-   <div class="col-lg-4 col-md-4">
-     <input type="text" class="form-control" ngSubmit = "search()" ng-model="name" ng-keypress="$event.which === 13 && search()" placeholder="Restaurant Name..." autofocus>
-     </div>
- </div>
-
- <div class="distance message">
-   <div class="alert alert-warning" role="alert">
-     All results are within a 2 mile radius of Hack Reactor - <strong>944 Market St. San Francisco, CA 94012</strong>
-   </div>
- </div>
+  <div class="event-details row">
+    <p class="event-title">{{event.name}}</p>
+    <p class="event-date">{{event.date}} @ {{event.time}}</h2>
+    <br>
+    <hr>
+  </div>
+  <div>
+    <br>
+    <p class="current-leader-title">Current Leader: <span class="current-leader">{{event.restaurant.name}}</span></p>
+  </div>
 
  <div class="row">
  <img src="/../../../assets/loading.gif" ng-show="loading" class="center-block">
