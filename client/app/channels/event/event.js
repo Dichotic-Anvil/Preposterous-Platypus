@@ -18,6 +18,15 @@ angular.module('platypus.event', [])
       console.error(err);
     });
 
+  $scope.vote = function(restaurant){
+  Event.vote(restaurant._id, event_id)
+    .then(function(response) {
+      console.log("You placed a vote!", response);
+    })
+    .catch(function(err) {
+      console.error("err", err);
+    });
+};
 
 
   $scope.data = {};
