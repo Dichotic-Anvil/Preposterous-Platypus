@@ -114,12 +114,25 @@ angular.module('platypus.foodServices', [])
     });
   };
 
+  var updateVotes = function(restaurantId, data) {
+    return $http({
+      method: 'PUT',
+      url: '/api/restaurants/' + restaurantId,    
+      data: { numVotes: data }
+    })
+    .then(function(resp) {
+      console.log('Updated Votes - PUT request was successful!');
+      return resp.data;
+    });
+  };
+
   return {
     getAll: getAll,
     addOne: addOne,
     removeOne: removeOne,
     updateLikes: updateLikes,
-    retrieveYelpIDs: retrieveYelpIDs
+    retrieveYelpIDs: retrieveYelpIDs,
+    updateVotes: updateVotes
   };
 })
 
