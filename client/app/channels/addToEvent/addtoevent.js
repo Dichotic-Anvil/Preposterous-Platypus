@@ -1,5 +1,5 @@
 angular.module('platypus.addToEvent', [])
- .controller('AddToEventController', function($scope, $routeParams, YelpApi, Restaurants, EventBiz, $location){
+ .controller('AddToEventController', function($scope, $routeParams, YelpApi, Restaurants, $location){
 
    var event_id = $routeParams.event_id;
    console.log(event_id);

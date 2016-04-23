@@ -4,6 +4,7 @@ angular.module('platypus.event', [])
   var event_id = $routeParams.event_id;
   $scope.eventData = {};
 
+
   $scope.addToEvent = function () {
     $location.path('/addtoevent/'+ event_id);
   }
@@ -11,11 +12,12 @@ angular.module('platypus.event', [])
   Event.getOne(event_id)
     .then(function(event) {
       $scope.eventData.event = event;
-        console.log("RETRIEVED EVENT", event);
+      console.log("Retrieved event successfully", event);
       })
     .catch(function(err) {
       console.error(err);
     });
+
 
 
   $scope.data = {};
