@@ -8,8 +8,8 @@
     <p class="event-title">{{eventData.event.name}}</p>
     <p class="event-date">When: {{eventData.event.date | date:'medium'}} </p>
     <p class="event-date">Details: {{eventData.event.description}}</p>
+    <button class="btn btn-warning" ng-Click="addToEvent()">Add a place</button>
     <hr>
-  <button class="btn btn-default" ng-Click="addToEvent()">Add a place</button>
   </div>
 
 
@@ -26,9 +26,9 @@
             <span ng-hide="category === restaurant.categories[0]">, </span>{{category}}</span> -->
           </div>
           <div class="row">
+            <span>Votes: {{restaurant.numVotes}}</span>
             <a role="button" class="btn btn-primary" ng-click="vote(restaurant, restaurant._id)">
-            <span class="glyphicon glyphicon-thumbs-up">Vote {{restaurant.numVotes}}</span>
-
+              <span>Vote</span>
             </a>
           </div>
         </div>
