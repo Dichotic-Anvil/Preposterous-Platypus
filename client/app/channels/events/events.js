@@ -15,6 +15,7 @@ angular.module('platypus.events', [])
   }
 
 
+
   // var updateUserLikes = function() {
   //   Likes.findUserLikes()
   //   .then(function(likes) {
@@ -69,7 +70,7 @@ angular.module('platypus.events', [])
       $http({
     method: 'POST',
     url: "https://hooks.slack.com/services/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",
-    data: JSON.stringify({"text": "Hey <!channel>, there's a new event! " + " \n " + "Event: "  + resp.data.name + "\n"  + "When: " + new Date(resp.data.date).toString()  + "\n" + "Link: http://127.0.0.1:8000/#/events/" + resp.data._id }),
+    data: JSON.stringify({"text": "Hey <!channel>, there's a new event! " + " \n " + "Event: "  + resp.data.name + "\n"  + "When: " + new Date(resp.data.date).toGMTString() + "\n" + "Link: http://127.0.0.1:8000/#/events/" + resp.data._id }),
     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
     })
     })
