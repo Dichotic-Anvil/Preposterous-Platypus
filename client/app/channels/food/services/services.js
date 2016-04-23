@@ -283,9 +283,10 @@ angular.module('platypus.foodServices', [])
   };
 
   var addOneRestaurant = function(data, event_id) {
+    console.log('WE THINK THERE IS SOMETHING HERE', data);
     return $http({
       method: 'POST',
-      url: '/api/events ' + event_id + '/' + add_restaurant,    
+      url: '/api/events/' + event_id + '/add_restaurant',    
       data: {restaurantId: data}
     })
     .then(function(resp) {
