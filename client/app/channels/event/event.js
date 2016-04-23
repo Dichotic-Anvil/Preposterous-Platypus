@@ -2,7 +2,25 @@ angular.module('platypus.event', [])
  .controller('EventController', function($scope, $routeParams, YelpApi, Restaurants, $location, $http, Event){
 
   var event_id = $routeParams.event_id;
-  $scope.eventData = {};
+  $scope.eventData = {event: {votes: [] }};
+
+  $scope.votes = {};
+
+  var test = function() {
+    var counter = 0;
+    for (var i = 0; i < $scope.eventData.event.votes.length; i++) {
+      var key = $scope.eventData.event.votes[i].restaurant._id;
+      $scope.votes[key] = $scope.eventData.event.votes[i].voters.length;
+      // console.log('added to votes');
+      // $scope.votes.push(++counter);
+
+
+      // $scope.votes.push({ $scope.eventData.event.votes[i].restaurant._id : $scope.eventData.event.votes[i].voters.length });
+    }
+    console.log('votes');
+    console.log($scope.votes);
+  };
+
 
 
   $scope.addToEvent = function () {
@@ -13,19 +31,44 @@ angular.module('platypus.event', [])
     .then(function(event) {
       $scope.eventData.event = event;
       console.log("Retrieved event successfully", event);
+      test();
+
+      var arrayOfRestaurants = $scope.eventData.event.options;
+      for (var i = 0, len = arrayOfRestaurants.length; i < len; i++) {
+        var restaurant = arrayOfRestaurants[i];
+        var restaurantId = restaurant._id;
+        restaurant.numVotes = restaurant.numVotes || 0;
+      }
+      console.log('LOOKIEE HERE');
+      console.log(arrayOfRestaurants);
+
+
       })
     .catch(function(err) {
       console.error(err);
     });
 
-  $scope.vote = function(restaurant){
-  Event.vote(restaurant._id, event_id)
-    .then(function(response) {
-      console.log("You placed a vote!", response);
+  $scope.vote = function(restaurant, restaurantId){
+    restaurant.numVotes++
+    //SERVER SIDE CODE HERE
+
+    Restaurants.updateVotes(restaurantId, restaurant.numVotes)
+    .then(function(vote){
+      console.log('Vote successfully stored', vote)
     })
-    .catch(function(err) {
-      console.error("err", err);
-    });
+    .catch(function(err){
+      console.error(err);
+    })
+
+    //send a put request to api/events/event_id/vote
+
+  // Event.vote(restaurant._id, event_id)
+  //   .then(function(response) {
+  //     console.log("You placed a vote!", response);
+  //   })
+  //   .catch(function(err) {
+  //     console.error("err", err);
+  //   });
 };
 
 

@@ -19,21 +19,21 @@
 
    <!--Add Dashboard Items-->
   <div class="row">
-    <div class="col-lg-3 col-sm-6 col-md-3" ng-repeat="restaurant in eventData.event.options">
+    <div class="col-lg-3 col-sm-6 col-md-3" ng-repeat="restaurant in eventData.event.options track by $index">
       <div class="thumbnail">
         <img ng-src="{{restaurant.image_url}}" alt="{{restaurant.name}}" class="img-rounded">
         <div class="caption">
           <span class="thumbnail-title">{{restaurant.name}}</span>
           <div class="row category-holder">
             <span class="glyphicon glyphicon-tag"></span>
-            <span ng-repeat="category in .restaurant.categories">
-            <span ng-hide="category === restaurant.categories[0]">, </span>{{category}}</span>
+            <!-- <span ng-repeat="category in .restaurant.categories">
+            <span ng-hide="category === restaurant.categories[0]">, </span>{{category}}</span> -->
           </div>
           <div class="row">
-            <a role="button" class="btn btn-primary" ng-click="vote(restaurant._id)">
-            <span class="glyphicon glyphicon-thumbs-up">Vote</span>
+            <a role="button" class="btn btn-primary" ng-click="vote(restaurant, restaurant._id)">
+            <span class="glyphicon glyphicon-thumbs-up">Vote {{restaurant.numVotes}}</span>
+            
             </a>
-            {{restaurant.votes.voters.length}}
           </div>
         </div>
       </div>

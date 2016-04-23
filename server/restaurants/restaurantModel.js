@@ -23,7 +23,7 @@ var restaurantSchema = new Schema({
   image_url: String,
   likes: Number,
   categories: [{type: String}]
-});
+},{strict: false});
 
 // restaurantSchema.plugin(relationship, {relationshipPathName: 'parent'});
 var Restaurant = mongoose.model('Restaurant', restaurantSchema);
