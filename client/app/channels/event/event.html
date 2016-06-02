@@ -12,7 +12,6 @@
     <hr>
   </div>
 
-
    <!--Add Dashboard Items-->
   <div class="row">
     <div class="col-lg-3 col-sm-6 col-md-3" ng-repeat="restaurant in eventData.event.options track by $index">
@@ -22,8 +21,6 @@
           <span class="thumbnail-title">{{restaurant.name}}</span>
           <div class="row category-holder">
             <span class="glyphicon glyphicon-tag"></span>
-            <!-- <span ng-repeat="category in .restaurant.categories">
-            <span ng-hide="category === restaurant.categories[0]">, </span>{{category}}</span> -->
           </div>
           <div class="row">
             <span>Votes: {{restaurant.numVotes}}</span>
@@ -35,23 +32,4 @@
       </div>
     </div>
   </div>
-
- <!-- <div class="row">
- <img src="/../../../assets/loading.gif" ng-show="loading" class="center-block">
- <div class="col-lg-3 col-sm-6 col-md-3" data-ng-repeat="restaurant in data.restaurants.data.businesses">
-   <div class="thumbnail" ng-class="{'existing-thumb' : data.currentRestaurants[restaurant.id]}">
-         <img ng-src="{{restaurant.image_url}}" alt="{{restaurant.name}}" class="img-rounded">
-         <div class="caption">
-           <span class="thumbnail-title">{{restaurant.name}}</span>
-           <address>
-             <span ng-repeat="address in restaurant.location.display_address">{{address}}<br></span>
-           </address>
-           <a class="btn btn-success" role="button" ng-click="addOne(restaurant)" ng-hide="data.currentRestaurants[restaurant.id]">
-           <span role="button" class="glyphicon glyphicon-plus"></span> Add
-           </a>
-           <span ng-show="data.currentRestaurants[restaurant.id]"><strong>Already Added</strong></span>
-         </div>
-       </div>
-       </div>
- </div> -->
  </div>
