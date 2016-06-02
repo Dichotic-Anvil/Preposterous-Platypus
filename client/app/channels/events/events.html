@@ -1,37 +1,31 @@
 <div class="container">
 <div ng-include="'app/partials/nav.html'"></div>
-
 <div class="row feed-filter">
-<!--   <div class="col-md-1 text-hide">&nbsp;</div> -->
-
-
-<form ng-submit='createEvent(event)' ng-show="toggleForm">
-  <div class="form-group">
-    <label for="eventName">Name of Event</label>
-    <input type="text" class="form-control" placeholder="Event title" ng-model="event.name">
-    <label for="eventDate">Date of Event</label><br>
-     <input type="datetime-local"  name="input" ng-model="event.date"
-       placeholder="yyyy-MM-ddTHH:mm:ss" min="2016-04-023T00:00:00" max="2090-12-31T00:00:00" required /><br>
-    <label for="eventDescription">Description</label>
-    <input type="text" class="form-control" placeholder="Event Desciption" ng-model="event.description">
-
-  </div>
-  <button type="submit" class="btn btn-default" ng-Click="toggleForm = !toggleForm">Create Event</button>
-</form>
-<br>
-<button type="submit" class="btn btn-warning" ng-Click="toggleForm = !toggleForm">Add an event</button>
+  <form ng-submit='createEvent(event)' ng-show="toggleForm">
+    <div class="form-group">
+      <label for="eventName">Name of Event</label>
+      <input type="text" class="form-control" placeholder="Event title" ng-model="event.name">
+      <label for="eventDate">Date of Event</label><br>
+       <input type="datetime-local"  name="input" ng-model="event.date"
+         placeholder="yyyy-MM-ddTHH:mm:ss" min="2016-04-023T00:00:00" max="2090-12-31T00:00:00" required /><br>
+      <label for="eventDescription">Description</label>
+      <input type="text" class="form-control" placeholder="Event Desciption" ng-model="event.description">
+    </div>
+    <button type="submit" class="btn btn-default" ng-Click="toggleForm = !toggleForm">Create Event</button>
+  </form>
+  <br>
+  <button type="submit" class="btn btn-warning" ng-Click="toggleForm = !toggleForm">Add an event</button>
   <label class="control-label col-md-1">Filter:</label>
   <div class="col-md-4">
     <input type="text" class="form-control" ng-model="feedFilter" placeholder="Filter by" autofocus>
-    </div>
-
-    <label class="control-label col-md-1">Sort:</label>
-    <div class="col-md-4 sort-container">
-      <select ng-model="feedOrder">
-        <option value="-likes">Liked: Most Popular to Least</option>
-        <option value="likes">Liked: Least Popular to Most</option>
-      </select>
-      </div>
+  </div>
+  <label class="control-label col-md-1">Sort:</label>
+  <div class="col-md-4 sort-container">
+    <select ng-model="feedOrder">
+      <option value="-likes">Liked: Most Popular to Least</option>
+      <option value="likes">Liked: Least Popular to Most</option>
+    </select>
+  </div>
 </div>
 
 <div class="distance message">
@@ -43,7 +37,6 @@
     <!--Add Event Items-->
   <div class="row">
     <div class="col-lg-3 col-sm-6 col-md-3" ng-repeat="event in events">
-
       <div class="event-thumbnail">
         <div class="event-caption">
           <span class="thumbnail-title">Event: {{event.name}}</span>
