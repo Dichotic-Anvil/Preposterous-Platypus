@@ -101,8 +101,6 @@ module.exports = {
   },
 
   findUserLikes: function(req, res) {
-    // console.log('req ', req);
-    // console.log('SESSION DATA >>>', req.session);
     console.log('req.session.passport.user ', req.session.passport.user);
     var query = { user: req.session.passport.user };
 
