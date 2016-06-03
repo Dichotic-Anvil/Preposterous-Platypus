@@ -11,6 +11,7 @@ module.exports = {
       if (err) {
         return res.json(err);
       }
+      
       res.json(data);
     });
   },
@@ -27,9 +28,8 @@ module.exports = {
         return res.json(err);
       }
 
-      console.log()
-
       res.json(data);
+
     });
   },
 
@@ -221,8 +221,6 @@ module.exports = {
       if (err) {
         return res.json(err);
       }
-
-      console.log(data);
 
       res.json(data);
     });

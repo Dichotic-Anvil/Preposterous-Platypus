@@ -17,7 +17,6 @@ module.exports = function(app, session, passport) {
     clientSecret: 'a97deeaf0cc14149773b419f9dcc48b35ed0f6a2',
     callbackURL: 'http://127.0.0.1:8000/github/callback'
   }, function(accessToken, refreshToken, profile, callback) {
-    // console.log('PROFILE >>>>>> ', profile);
     User
       .findOne({'gitHubHandle': profile.username}, function(err, found) {
         if (found) {

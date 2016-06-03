@@ -208,7 +208,6 @@ angular.module('platypus.foodServices', [])
     })
     .then(function(resp) {
       console.log('GET request was successful - all Liked Restaurants retrieved.');
-      // console.log(resp.data);
       callback(resp.data);
     });
   };
@@ -233,7 +232,6 @@ angular.module('platypus.foodServices', [])
       url: '/api/likes/user',
     })
     .then(function(resp) {
-      // console.log('GET was successful - findUserLikes');
       return resp.data;
     });
   };
@@ -284,13 +282,6 @@ angular.module('platypus.foodServices', [])
       url: '/api/events/' + event_id,
     })
     .then(function(resp) {
-      // console.log("THIS IS THE DATA", resp.data);
-      // console.log("THIS IS THE NAME OF THE EVENT", resp.data.name);
-      // console.log("THESE ARE THE VOTES", resp.data.votes[0]);
-      // console.log("THESE ARE THE AMOUNT OF VOTERS", resp.data.votes[0].voters.length);
-      // console.log("THESE ARE THE VOTERS", resp.data.votes[0].voters[0].name)
-      // console.log("THIS IS THE DATA", resp.data);
-      // console.log('GET request was successful!');
       return resp.data;
     })
   };
